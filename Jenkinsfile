@@ -36,14 +36,14 @@ pipeline {
             }
         }
 
-#        stage('Test') {
-#            steps {
-#                echo 'Ejecutando test de Maven'
-#                script {
-#                    sh 'mvn test'
-#                }
-#            }
-#        }
+//        stage('Test') {
+//            steps {
+//                echo 'Ejecutando test de Maven'
+//                script {
+//                    sh 'mvn test'
+//                }
+//            }
+//        }
 
         stage('Sonar Scanner') {
             steps {

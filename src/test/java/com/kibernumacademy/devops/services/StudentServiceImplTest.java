@@ -60,4 +60,21 @@ public class StudentServiceImplTest {
   }
 
   // De forma similar, puedes escribir pruebas para deleteStudentById y updatedStudent.
+
+  @Test
+  void deleteStudentById_ShouldDeleteStudent_WhenIdExists() {
+    Long studentId = 1L;
+    Student student = new Student("Richard", "Stallman");
+    when(repository.findById(studentId)).thenReturn(Optional.of(student));
+    studentService.deleteStudentById(studentId);
+    verify(repository, times(1)).deleteById(studentId);
+  }
+  
+  @Test
+  void deleteStudentById_ShouldThrowException_WhenIdDoesNotExist() {
+    Long studentId = 1L;
+    when(repository.findById(studentId)).thenReturn(Optional.empty());
+    assertThrows(NoSuchElementException.class, () -> studentService.deleteStudentById(studentId));
+  }
+
 }

@@ -28,7 +28,7 @@ pipeline {
         stage('Archive Artifacts') {
             steps {
                 script {
-                    sh 'mvn package'
+                    sh 'mvn compile'
                 }
                 echo '*****     PASO 3     *****'
                 echo 'Almacenamiento del artefacto en el directorio TARGET'

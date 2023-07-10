@@ -64,7 +64,7 @@ public class StudentServiceImplTest {
   @Test
   void deleteStudentById_ShouldDeleteStudent_WhenIdExists() {
     Long studentId = 1L;
-    Student student = new Student("Richard", "Stallman");
+    Student student = new Student("Richard", "Stallman", "rstallman@example.com");
     when(repository.findById(studentId)).thenReturn(Optional.of(student));
     studentService.deleteStudentById(studentId);
     verify(repository, times(1)).deleteById(studentId);
